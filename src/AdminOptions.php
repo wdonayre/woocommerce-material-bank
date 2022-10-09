@@ -14,9 +14,15 @@ class AdminOptions {
     
   private $plugin;
 
+  private $container;
+
+  private $modules;
+
 
   private function __construct() {
       $this->plugin = \WooMaterialBank\Plugin::instance();
+
+      $this->modules = [];
   }
   
 
@@ -29,48 +35,31 @@ class AdminOptions {
       return self::$instance;
   }
 
+  public function setContainer($container){
+    $this->container = $container;
+    // var_dump($this->container);
+  } 
+  public function getContainer(){
+    // var_dump($this->container);
+    return $this->container;
+  }
+  public function register($module){
+    if(!empty($module)){
+      array_push($this->modules, $module);
+    }
+  }
+
   public static function init() {
-    $instance = self::instance();
+    // $instance = self::instance();
 
     \add_action( 'carbon_fields_register_fields', function(){
-    
-      /**
-        * MAIN CONTAINER in Options
-      */
+      
+      $instance = \WooMaterialBank\AdminOptions::instance();
+      $instance->setContainer(Container::make( 'theme_options', 'WooMaterialBank Options')  );
 
-      $plugin_options = Container::make( 'theme_options', 'WooMaterialBank Options');
-
-      /**
-       * Variables and Constants
-       */
-      $plugin_options->add_tab(
-        __('Variables and Constants'),
-        [
-          Field::make( 'textarea', 'crb_variables_object', __( '' ) )
-            ->set_classes( 'wcmb_variable_object' )
-        ]
-      );
-
-      /**
-       * Email
-       */
-      $plugin_options->add_tab(
-        __('Email'),
-        [
-          Field::make( 'text', 'crb_admin', __( 'Admin Email' ) )
-        ]
-      );
-
-      /**
-       * Email
-       */
-      $plugin_options->add_tab(
-        __('Template'),
-        [
-          Field::make( 'textarea', 'crb_template', __( '' ) )
-           ->set_classes('crb-template')
-        ]
-      );
+      foreach($instance->modules as $module){
+        $module->renderAdminOption($instance->getContainer());
+      }
 
     });
   }

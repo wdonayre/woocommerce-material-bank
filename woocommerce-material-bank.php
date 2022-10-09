@@ -34,7 +34,15 @@ define( 'WCMB_PLUGIN_NAME', trim( dirname( WCMB_PLUGIN_BASENAME ), '/' ) );
 
 define( 'WCMB_PLUGIN_DIR', untrailingslashit( dirname( WCMB_PLUGIN ) ) );
 
-define( 'WCMB_PLUGIN_MODULES_DIR', WCMB_PLUGIN_DIR . '/modules' );
+define( 'WCMB_PLUGIN_MODULES_DIR', WCMB_PLUGIN_DIR . '/src/modules' );
+define( 'WCMB_PLUGIN_FUNCTIONS_DIR', WCMB_PLUGIN_DIR . '/src/functions' );
+
+define( 'WCMB_API_HOST_SANDBOX', ' https://apistage.materialbank.com');
+define( 'WCMB_API_HOST', 'https://api.materialbank.com');
+//SEND ORDER ENDPOINT =>  https://apistage.materialbank.com/order/sendOrder
+
+define( 'WCMB_SANDBOX_API_KEY', 'eb8gtxvFmw43tzMROH3RL6Wd0zkVmoYy981sa2j2' );
+define( 'WCMB_PRODUCTION_API_KEY', '' );
 
 define( 'WCMB_GITHUB_USER', 'wdonayre');
 
@@ -44,4 +52,4 @@ if( !class_exists('WooMaterialBank') ) {
 
 // require_once 'src/shortcodes/shortcodes.php';
 
-\WooMaterialBank\Plugin::load();
+\WooMaterialBank\Plugin::load(); 

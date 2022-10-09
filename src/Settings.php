@@ -83,35 +83,35 @@ class Settings {
   public function adminEnqueue(){
 
     // CodeMirror
-    \wp_enqueue_style( 'wcmb-codemirror-css', \plugin_dir_url( WCMB_PLUGIN )."lib/codemirror/lib/codemirror.css", [], WCMB_VERSION );
-    \wp_enqueue_script( 'wcmb-codemirror-js', \plugin_dir_url( WCMB_PLUGIN )."lib/codemirror/lib/codemirror.js", [], WCMB_VERSION );
-    \wp_enqueue_script( "wcmb-codemirror-addon-overlay", \plugin_dir_url( WCMB_PLUGIN )."lib/codemirror/addon/mode/overlay.js", [], WCMB_VERSION ); 
-    \wp_enqueue_script( "wcmb-codemirror-mode-xml", \plugin_dir_url( WCMB_PLUGIN )."lib/codemirror/mode/xml/xml.js", [], WCMB_VERSION ); 
-    // END :: CodeMirror
+    // \wp_enqueue_style( 'wcmb-codemirror-css', \plugin_dir_url( WCMB_PLUGIN )."lib/codemirror/lib/codemirror.css", [], WCMB_VERSION );
+    // \wp_enqueue_script( 'wcmb-codemirror-js', \plugin_dir_url( WCMB_PLUGIN )."lib/codemirror/lib/codemirror.js", [], WCMB_VERSION );
+    // \wp_enqueue_script( "wcmb-codemirror-addon-overlay", \plugin_dir_url( WCMB_PLUGIN )."lib/codemirror/addon/mode/overlay.js", [], WCMB_VERSION ); 
+    // \wp_enqueue_script( "wcmb-codemirror-mode-xml", \plugin_dir_url( WCMB_PLUGIN )."lib/codemirror/mode/xml/xml.js", [], WCMB_VERSION ); 
+    // // END :: CodeMirror
 
     //JSON Editor 
-    \wp_register_script( 
-      'JSONEditor', 
-      \plugin_dir_url( WCMB_PLUGIN )."lib/jsoneditor.min.js",
-      [],
-      WCMB_VERSION
-    );
+    // \wp_register_script( 
+    //   'JSONEditor', 
+    //   \plugin_dir_url( WCMB_PLUGIN )."lib/jsoneditor.min.js",
+    //   [],
+    //   WCMB_VERSION
+    // );
 
-    \wp_enqueue_script(
-      "JSONEditor",
-      \plugin_dir_url( WCMB_PLUGIN )."lib/jsoneditor.min.js",
-      [],
-      WCMB_VERSION
-    ); 
+    // \wp_enqueue_script(
+    //   "JSONEditor",
+    //   \plugin_dir_url( WCMB_PLUGIN )."lib/jsoneditor.min.js",
+    //   [],
+    //   WCMB_VERSION
+    // ); 
     // END :: JSON Editor 
 
     //Font Awesome
-    \wp_enqueue_style(
-      'font-awesome',
-      \plugin_dir_url( WCMB_PLUGIN )."lib/font-awesome-4/css/font-awesome.min.css",
-      [],
-      WCMB_VERSION
-    );
+    // \wp_enqueue_style(
+    //   'font-awesome',
+    //   \plugin_dir_url( WCMB_PLUGIN )."lib/font-awesome-4/css/font-awesome.min.css",
+    //   [],
+    //   WCMB_VERSION
+    // );
 
 
     //Main Admin Script 

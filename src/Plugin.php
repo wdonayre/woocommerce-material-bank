@@ -2,6 +2,8 @@
 
 namespace WooMaterialBank;
 
+use WooMaterialBank\Module;
+
 // Exit if accessed directly
 if (!defined('ABSPATH')) exit;
 
@@ -12,10 +14,13 @@ class Plugin {
   private static $instance;
 
   private $settings = null;
+
+  private $modules;
   
 
   private function __construct() {
     $this->config = array();
+    $this->modules = [];
   }
   
 
@@ -24,9 +29,12 @@ class Plugin {
           self::$instance = new Plugin();
           self::$instance->loadTextdomain();
           self::$instance->hooks();
+          self::$instance->loadModules();
           self::$instance->loadAdminOptions();
           self::$instance->initSettings();
           self::$instance->loadUpdater();
+          self::$instance->postLoad();
+          self::$instance->loadShortcodes();
       }
 
       return self::$instance;
@@ -49,16 +57,12 @@ class Plugin {
 
 
   private function hooks() {
-    //\add_action('wp_head', array(&$this, 'initJsLogging'));
-    //\add_action('admin_head', array(&$this, 'initJsLogging'));
-
     \register_activation_hook( __FILE__, array($this, 'activate_wcmb') );
     \register_deactivation_hook( __FILE__, array($this, 'deactivate_wcmb') );
 
     \add_filter('setup_theme',function(){
       \Carbon_Fields\Carbon_Fields::boot();
     });
-
   }
 
 
@@ -66,9 +70,18 @@ class Plugin {
     Settings::init();
   }
 
-  
+  /**
+   * Initialize Admin Options
+   */
   private function loadAdminOptions(){
     AdminOptions::init();
+  }
+
+  /**
+   * Initialize Shortcodes
+   */
+  private function loadShortcodes(){
+    Shortcodes::init();
   }
 
    
@@ -82,6 +95,10 @@ class Plugin {
     
   }
 
+  private function loadModules(){
+    Modules::init();
+  }
+
   private function loadUpdater(){
     //if ((string) get_option('access_hash') !== '') {
       
@@ -92,6 +109,10 @@ class Plugin {
       $updater->initialize();
 
     //}
+  }
+
+  private function postLoad(){
+    include WCMB_PLUGIN_FUNCTIONS_DIR."/woocommerce/woocommerce.php";
   }
 
 

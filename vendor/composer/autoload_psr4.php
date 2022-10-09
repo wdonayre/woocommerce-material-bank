@@ -6,7 +6,14 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'WooMaterialBank\\Modules\\' => array($baseDir . '/src/modules'),
+    'WooMaterialBank\\Interfaces\\' => array($baseDir . '/src/interfaces'),
     'WooMaterialBank\\' => array($baseDir . '/src'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
+    'Psr\\Http\\Client\\' => array($vendorDir . '/psr/http-client/src'),
+    'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
+    'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
+    'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
     'Carbon_Fields_Plugin\\' => array($baseDir . '/wp-content/plugins/carbon-fields-plugin/core'),
     'Carbon_Fields\\' => array($vendorDir . '/htmlburger/carbon-fields/core'),

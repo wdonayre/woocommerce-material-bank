@@ -3,7 +3,8 @@
     "description": "Woocommerce Integration with Material Bank",
     "type": "wordpress-plugin",
     "require": {
-      "htmlburger/carbon-fields-plugin": "^3.3.4"
+      "htmlburger/carbon-fields-plugin": "^3.3.4",
+        "guzzlehttp/guzzle": "^7.0"
     },
     "license": "GNU GPL",
     "authors": [
@@ -19,7 +20,10 @@
 
     "autoload": {
       "psr-4": {
-        "WooMaterialBank\\": "src/"
+        "WooMaterialBank\\": "src/",
+        "WooMaterialBank\\Interfaces\\":"src/interfaces/",
+        "WooMaterialBank\\Modules\\":"src/modules/"
+
       }
     },
     "config": {
