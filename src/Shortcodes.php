@@ -36,8 +36,6 @@ class Shortcodes {
   public static function init() {
 
     foreach(self::$instance->modules as $module){
-      var_dump("Shortcode name: ".$module->getShortcodeName());
-      // var_dump($module);
         \add_shortcode( $module->getShortcodeName(), [$module, 'shortcode'] );
     }
     

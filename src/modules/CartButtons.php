@@ -46,12 +46,13 @@ public static function instance()
     public function renderAdminOption($container){}
 
     public function shortcode($attr){
-      $pid = get_the_ID();
 
-      var_dump($pid);
-      var_dump("WDONAYRE");
+      $pid = get_the_ID();
+      ob_start();
+
+      
   
-      return "";
+      return ob_get_clean();
 
     }
 
