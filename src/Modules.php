@@ -24,14 +24,15 @@ class Modules implements InterfaceModule {
   private $modules;
 
   private $includeModules = [
-    'Materialbank',
+    'MaterialBank',
     'PipeDrive',
-    'CartButtons'
+    'CartButtons',
+    'TalkCarpet'
   ];
 
 
     function __construct() {
-      $this->plugin = \WooMaterialBank\Plugin::instance();
+      // $this->plugin = \WooMaterialBank\Plugin::instance();
 
       $this->modules = [];
   }
@@ -56,12 +57,16 @@ class Modules implements InterfaceModule {
   public static function init() {
     //register modules
     foreach(self::instance()->includeModules as $module){
-        $strClass = 'WooMaterialBank\Modules\\'.$module;
-        AdminOptions::instance()->register($strClass::instance());
-        Shortcodes::instance()->register($strClass::instance());
+      
+      $strClass = 'WooMaterialBank\Modules\\'.$module;
+      //error_log(get_class($module));
+      AdminOptions::instance()->register($strClass::instance());
+      //error_log('SHORTCODE>>>');
+      Shortcodes::instance()->register($strClass::instance());
     }
     //call init from all modules
     foreach(self::instance()->includeModules as $module){
+        $strClass = 'WooMaterialBank\Modules\\'.$module;
         $strClass::init();
     }
   }

@@ -20,7 +20,7 @@ class PipeDrive extends Modules{
 
 
   private function __construct() {
-      $this->plugin = \WooMaterialBank\Plugin::instance();
+      // $this->plugin = \WooMaterialBank\Plugin::instance();
   }
   
 

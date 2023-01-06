@@ -36,6 +36,7 @@ define( 'WCMB_PLUGIN_DIR', untrailingslashit( dirname( WCMB_PLUGIN ) ) );
 
 define( 'WCMB_PLUGIN_MODULES_DIR', WCMB_PLUGIN_DIR . '/src/modules' );
 define( 'WCMB_PLUGIN_FUNCTIONS_DIR', WCMB_PLUGIN_DIR . '/src/functions' );
+define ('WCMB_PLUGIN_LOG_PATH', WCMB_PLUGIN_DIR.'/logs');
 
 define( 'WCMB_API_HOST_SANDBOX', ' https://apistage.materialbank.com');
 define( 'WCMB_API_HOST', 'https://api.materialbank.com');
@@ -51,5 +52,4 @@ if( !class_exists('WooMaterialBank') ) {
 }
 
 // require_once 'src/shortcodes/shortcodes.php';
-
 \WooMaterialBank\Plugin::load(); 

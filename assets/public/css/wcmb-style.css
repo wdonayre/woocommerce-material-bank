@@ -1,0 +1,84 @@
+.tc-cart-buttons{
+    text-align:center;
+}
+.tc-cart-buttons > a{
+    display:block !important;
+    max-width:350px;
+    margin:8px auto;
+}
+.tc-cart-buttons > a.extra-cta{
+   background: #7DD1B0;
+   border-radius:50px;
+}
+.tc-cart-buttons > a.extra-cta:hover{
+    background: #50cd9b;
+    text-decoration:none !important;
+    color:black;
+}
+
+
+
+/* Change number 4 with number of column you want to remove */
+ 
+.woocommerce table.cart td:nth-of-type(4),
+.woocommerce table.cart td:nth-of-type(5),
+.woocommerce table.cart th:nth-of-type(6),
+.woocommerce table.cart .product-quantity,
+.woocommerce table.cart .product-subtotal {
+    display: none; 
+ }
+
+.cart-collaterals .cart_totals h2 {
+    display:none;
+}
+.cart-collaterals .cart_totals table.shop_table{
+    display:none;
+}
+
+form.woocommerce-cart-form .shop_table{
+    margin-bottom:0px;
+}
+
+form.woocommerce-cart-form .product-price{
+    display:none;
+}
+
+ /*
+    Checkout page related
+ */
+form[name="checkout"] strong.product-quantity,
+form[name="checkout"] .product-total,
+form[name="checkout"] tfoot .cart-subtotal,
+form[name="checkout"] tfoot .order-total{
+    display:none;
+}
+
+.woocommerce-checkout-payment .woocommerce-terms-and-conditions-wrapper{
+    margin-bottom:0 !important;
+}
+
+.woocommerce-order-overview__total.total{
+    display:none;
+}
+
+.woocommerce-order-overview__total.total{
+    display:none;
+}
+
+.woocommerce-order-details table.woocommerce-table td.woocommerce-table__product-total,
+.woocommerce-order-details table.woocommerce-table thead .woocommerce-table__product-table,
+.woocommerce-order-details table.woocommerce-table tfoot{
+    display:none;
+}
+
+
+/*
+    Project Details
+*/
+table.tc_checkout_details  tr > th{
+    width:20%;
+}
+table.tc_checkout_details  tr > th,
+table.tc_checkout_details  tr > td{
+    border:1px solid #e0e0e0;
+}

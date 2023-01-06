@@ -16,6 +16,8 @@ class Plugin {
   private $settings = null;
 
   private $modules;
+
+  public $initialized = "";
   
 
   private function __construct() {
@@ -25,8 +27,11 @@ class Plugin {
   
 
   public static function instance() {
+
       if( !self::$instance ) {
-          self::$instance = new Plugin();
+          
+          self::$instance = new self();
+          // self::$instance = new Plugin();
           self::$instance->loadTextdomain();
           self::$instance->hooks();
           self::$instance->loadModules();
@@ -35,6 +40,8 @@ class Plugin {
           self::$instance->loadUpdater();
           self::$instance->postLoad();
           self::$instance->loadShortcodes();
+          // error_log('Plugin instance...'.self::$instance->initialized.'<<<');
+          self::$instance->initialized = "initialized already";
       }
 
       return self::$instance;
@@ -112,8 +119,13 @@ class Plugin {
   }
 
   private function postLoad(){
-    include WCMB_PLUGIN_FUNCTIONS_DIR."/woocommerce/woocommerce.php";
+    include WCMB_PLUGIN_DIR."/src/woocommerce/woocommerce.php";
+    include WCMB_PLUGIN_DIR."/src/admin/admin-bar.php";
+    include WCMB_PLUGIN_DIR."/src/admin/mb-resync-inventory.php";
+    include WCMB_PLUGIN_DIR."/src/utilities/log.php";
   }
+
+
 
 
 }

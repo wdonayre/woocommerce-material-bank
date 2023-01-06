@@ -34,6 +34,45 @@
 
 
     });
+
+    /**
+     * Admin Top Bar click event handler
+     */
+    $('#wp-admin-bar-tc-materialbank-resync a').on('click', (e)=>{
+      var el = e.target;
+      e.preventDefault();
+      
+      if($(el).hasClass('syncing')) return false;
+
+      $(el).addClass('syncing');
+
+      var data = {
+        'action'    : 'mb_inventory_sync',
+      };
+
+    jQuery.post(ajaxurl, data, function(response) {
+      $(el).removeClass('syncing');
+        if( response && response.success ){
+          alert('Completed MaterialBank and Wooocommerce Sync!'); 
+        }
+
+        })
+        .fail(()=>{
+            
+        })  
+        .always(()=>{
+            
+        });
+        
+    });
   })
+
+
+  /**
+   * ADMIN
+   */
+    $(document).ready(()=>{
+      // $('[name="carbon_fields_compact_input[_crb_materialbank_inventory]"]').attr('disabled','');
+    });
   
 })(jQuery);
