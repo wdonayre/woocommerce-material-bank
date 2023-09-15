@@ -4,8 +4,8 @@
  * Plugin URI:      https://wordpress.org/plugins/woocommerce-material-bank
  * Description:     Woocommerce Integration with Material Bank
  * Version:         0.0.1
- * Author:          Glabs Tech
- * Author URI:      https://glabs.tech/wp-mortgage-calculator
+ * Author:          William Donayre Jr - Glabs Tech
+ * Author URI:      https://glabs.tech/
  * Text Domain:     wcmb
  * Tested up to:    5.4.1
  *
